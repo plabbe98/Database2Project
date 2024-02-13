@@ -1,34 +1,33 @@
-<?php
-  // create short variable names
-  $student_id = $_POST['student_id'];
-  $name = $_POST['name'];
-  $email = $_POST['email'];
-  $dept_name = $_POST['dept_name'];
-  $DOCUMENT_ROOT = $_SERVER['DOCUMENT_ROOT'];
-?>
-
 <head>
   <title>UMass Lowell - Student Registration</title>
 </head>
 <body>
 <h1>UMass Lowell</h1>
 <h2>Student Registration</h2>
-<?php
-  $myconnection = mysqli_connect('localhost', 'root', '') or die ('Could not connect: ' . mysql_error());
-  $mydb = mysqli_select_db ($myconnection, 'db2') or die ('Could not select database');
 
- echo 'Title &nbsp; &nbsp; &nbsp; Year<br>';
- while ($row = mysqli_fetch_array ($result, MYSQLI_ASSOC)) { 
- echo $row["title"];
- echo "&nbsp;&nbsp;&nbsp;";
- echo $row["year"];
- echo '<br>';
+<form action="studentReg.php" method="post">
+<table border="0">
+<tr>
+  <td>Student ID</td>
+  <td align="left"><input type="text" name="student_id" size="8" maxlength="8"/></td>
+</tr>
+<tr>
+  <td>Name</td>
+  <td align="left"><input type="text" name="name" size="20" maxlength="20"/></td>
+</tr>
+<tr>
+  <td>Email</td>
+  <td align="left"><input type="text" name="email" size="20" maxlength="20"/></td>
+</tr>
+<tr>
+  <td>Department Name</td>
+  <td align="left"><input type="text" name="dept_name" size="50" maxlength="50"/></td>
+</tr>
+<tr>
+  <td colspan="2" align="center"><input type="submit" value="Register!"/></td>
+</tr>
+</table>
+</form>
 
- $query = 'INSERT INTO student (student_id, name, email, dept_name) VALUES ()';
- $result = mysqli_query($myconnection, $query) or die ('Query failed: ' . mysql_error());
- }
- mysqli_free_result($result);
- mysqli_close($myconnection);
-?>
 </body>
 </html>
