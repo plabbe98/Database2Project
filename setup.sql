@@ -229,6 +229,6 @@ insert into student (dept_name, email, name, password, student_id) value ('Miner
 
 insert into undergraduate (class_standing, student_id, total_credits) value ('Sophomore', 0000000, 6);
 insert into undergraduate (class_standing, student_id, total_credits) value ('Sophomore', 1111111, 6);
-insert into undergraduate (student_id) value ('Freshman', 2222222);
-insert into undergraduate (student_id) value ('Freshman', 3333333);
-insert into undergraduate (student_id) value ('Freshman', 4444444);
+insert into undergraduate (class_standing, student_id) value ('Freshman', 2222222);
+insert into undergraduate (class_standing, student_id) value ('Freshman', 3333333);
+insert into undergraduate (class_standing, student_id) value ('Freshman', 4444444);
