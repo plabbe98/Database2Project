@@ -220,3 +220,21 @@ insert into section (course_id, section_id, semester, year) value ('COMP1020', '
 insert into section (course_id, section_id, semester, year) value ('COMP2010', 'Section101', 'Fall', 2023);
 insert into section (course_id, section_id, semester, year) value ('COMP2010', 'Section102', 'Fall', 2023);
 insert into section (course_id, section_id, semester, year) value ('COMP2040', 'Section201', 'Spring', 2024);
+
+insert into take (course_id, grade, section_id, semester, student_id, year) value ('COMP1040', 3.0, 'Section101', 'Fall', 0000000, 2023);
+insert into take (course_id, grade, section_id, semester, student_id, year) value ('COMP2010', 4.0, 'Section102', 'Fall', 0000000, 2023);
+insert into take (course_id, section_id, semester, student_id, year) value ('COMP2040', 'Section201', 'Spring', 0000000, 2024);
+insert into take (course_id, grade, section_id, semester, student_id, year) value ('COMP1010', 3.0, 'Section101', 'Fall', 1111111, 2023);
+insert into take (course_id, grade, section_id, semester, student_id, year) value ('COMP2010', 4.0, 'Section102', 'Fall', 1111111, 2023);
+
+insert into student (dept_name, email, name, password, student_id) value ('Miner School of Computer & Information Sciences', 'johnsmith@email.com', 'John Smith', 'password123', 0000000);
+insert into student (dept_name, email, name, password, student_id) value ('Miner School of Computer & Information Sciences', 'samadams@email.com', 'Sam Adams', 'password123', 1111111);
+insert into student (dept_name, email, name, password, student_id) value ('Miner School of Computer & Information Sciences', 'alexanderhamilton@email.com', 'Alexander Hamilton', 'password123', 2222222);
+insert into student (dept_name, email, name, password, student_id) value ('Miner School of Computer & Information Sciences', 'georgewashington@email.com', 'George Washington', 'password123', 3333333);
+insert into student (dept_name, email, name, password, student_id) value ('Miner School of Computer & Information Sciences', 'abelincoln@email.com', 'Abe Lincoln', 'password123', 4444444);
+
+insert into undergraduate (class_standing, student_id, total_credits) value (3.5, 0000000, 6);
+insert into undergraduate (class_standing, student_id, total_credits) value (3.5, 1111111, 6);
+insert into undergraduate (student_id) value (2222222);
+insert into undergraduate (student_id) value (3333333);
+insert into undergraduate (student_id) value (4444444);
