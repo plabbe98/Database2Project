@@ -27,6 +27,7 @@ create table student
 	 name			varchar(20) not null, 
 	 email			varchar(50) not null,
 	 dept_name		varchar(100), 
+	 password		varchar(20) not null,
 	 primary key (student_id),
 	 foreign key (dept_name) references department (dept_name)
 		on delete set null
