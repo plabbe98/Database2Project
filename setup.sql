@@ -121,8 +121,6 @@ create table advise
 	 foreign key (instructor_id) references instructor (instructor_id)
 		on delete  cascade,
 	 foreign key (student_id) references PhD (student_id)
-		on delete cascade,
-	foreign key (course_id) references advise (course_id)
 		on delete cascade
 );
 
