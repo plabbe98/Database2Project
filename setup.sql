@@ -233,8 +233,8 @@ insert into student (dept_name, email, name, password, student_id) value ('Miner
 insert into student (dept_name, email, name, password, student_id) value ('Miner School of Computer & Information Sciences', 'georgewashington@email.com', 'George Washington', 'password123', 3333333);
 insert into student (dept_name, email, name, password, student_id) value ('Miner School of Computer & Information Sciences', 'abelincoln@email.com', 'Abe Lincoln', 'password123', 4444444);
 
-insert into undergraduate (class_standing, student_id, total_credits) value (3.5, 0000000, 6);
-insert into undergraduate (class_standing, student_id, total_credits) value (3.5, 1111111, 6);
-insert into undergraduate (student_id) value (2222222);
-insert into undergraduate (student_id) value (3333333);
-insert into undergraduate (student_id) value (4444444);
+insert into undergraduate (class_standing, student_id, total_credits) value ('Sophomore', 0000000, 6);
+insert into undergraduate (class_standing, student_id, total_credits) value ('Sophomore', 1111111, 6);
+insert into undergraduate (student_id) value ('Freshmen', 2222222);
+insert into undergraduate (student_id) value ('Freshmen', 3333333);
+insert into undergraduate (student_id) value ('Freshmen', 4444444);
