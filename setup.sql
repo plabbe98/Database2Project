@@ -221,12 +221,6 @@ insert into section (course_id, section_id, semester, year) value ('COMP2010', '
 insert into section (course_id, section_id, semester, year) value ('COMP2010', 'Section102', 'Fall', 2023);
 insert into section (course_id, section_id, semester, year) value ('COMP2040', 'Section201', 'Spring', 2024);
 
-insert into take (course_id, grade, section_id, semester, student_id, year) value ('COMP1040', 'B', 'Section101', 'Fall', 0000000, 2023);
-insert into take (course_id, grade, section_id, semester, student_id, year) value ('COMP2010', 'A', 'Section102', 'Fall', 0000000, 2023);
-insert into take (course_id, section_id, semester, student_id, year) value ('COMP2040', 'Section201', 'Spring', 0000000, 2024);
-insert into take (course_id, grade, section_id, semester, student_id, year) value ('COMP1010', 'B', 'Section101', 'Fall', 1111111, 2023);
-insert into take (course_id, grade, section_id, semester, student_id, year) value ('COMP2010', 'A', 'Section102', 'Fall', 1111111, 2023);
-
 insert into student (dept_name, email, name, password, student_id) value ('Miner School of Computer & Information Sciences', 'johnsmith@email.com', 'John Smith', 'password123', 0000000);
 insert into student (dept_name, email, name, password, student_id) value ('Miner School of Computer & Information Sciences', 'samadams@email.com', 'Sam Adams', 'password123', 1111111);
 insert into student (dept_name, email, name, password, student_id) value ('Miner School of Computer & Information Sciences', 'alexanderhamilton@email.com', 'Alexander Hamilton', 'password123', 2222222);
@@ -235,6 +229,6 @@ insert into student (dept_name, email, name, password, student_id) value ('Miner
 
 insert into undergraduate (class_standing, student_id, total_credits) value ('Sophomore', 0000000, 6);
 insert into undergraduate (class_standing, student_id, total_credits) value ('Sophomore', 1111111, 6);
-insert into undergraduate (student_id) value ('Freshmen', 2222222);
-insert into undergraduate (student_id) value ('Freshmen', 3333333);
-insert into undergraduate (student_id) value ('Freshmen', 4444444);
+insert into undergraduate (student_id) value ('Freshman', 2222222);
+insert into undergraduate (student_id) value ('Freshman', 3333333);
+insert into undergraduate (student_id) value ('Freshman', 4444444);
