@@ -116,10 +116,13 @@ create table advise
 	 student_id		varchar(10),
 	 start_date		date not null,
 	 end_date		date,
+	 course_id		varchar(8),
 	 primary key (instructor_id, student_id),
 	 foreign key (instructor_id) references instructor (instructor_id)
 		on delete  cascade,
 	 foreign key (student_id) references PhD (student_id)
+		on delete cascade,
+	foreign key (course_id) references advise (course_id)
 		on delete cascade
 );
 
