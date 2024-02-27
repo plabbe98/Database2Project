@@ -183,7 +183,6 @@ create table take
 	);
 
 
-
 insert into account (email, password, type) values ('admin@uml.edu', '123456', 'admin');
 insert into account (email, password, type) values ('dbadams@cs.uml.edu', '123456', 'instructor');
 insert into account (email, password, type) values ('slin@cs.uml.edu', '123456', 'instructor');
@@ -232,3 +231,9 @@ insert into undergraduate (class_standing, student_id, total_credits) value ('So
 insert into undergraduate (class_standing, student_id) value ('Freshman', 2222222);
 insert into undergraduate (class_standing, student_id) value ('Freshman', 3333333);
 insert into undergraduate (class_standing, student_id) value ('Freshman', 4444444);
+
+insert into advise (instructor_id, student_id, start_date, end_date, course_id) value ('1', 0000000, 09/06/2023, 12/16/2023, 'COMP1010');
+insert into advise (instructor_id, student_id, start_date, end_date, course_id) value ('2', 0000000, 6);
+insert into advise (instructor_id, student_id, start_date, end_date, course_id) value ('3', 0000000, 6);
+insert into advise (instructor_id, student_id, start_date, end_date, course_id) value ('4', 0000000, 6);
+insert into advise (instructor_id, student_id, start_date, end_date, course_id) value ('5', 0000000, 6);
