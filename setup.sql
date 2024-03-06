@@ -237,3 +237,7 @@ insert into advise (instructor_id, student_id, start_date, end_date, course_id) 
 insert into advise (instructor_id, student_id, start_date, end_date, course_id) value ('3', 0000000, 6);
 insert into advise (instructor_id, student_id, start_date, end_date, course_id) value ('4', 0000000, 6);
 insert into advise (instructor_id, student_id, start_date, end_date, course_id) value ('5', 0000000, 6);
+
+insert into prereq (course_id, prereq_id) value ('COMP1020', 'COMP1010');
+insert into prereq (course_id, prereq_id) value ('COMP2010', 'COMP1020');
+insert into prereq (course_id, prereq_id) value ('COMP2040', 'COMP2010');
