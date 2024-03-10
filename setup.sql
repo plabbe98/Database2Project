@@ -27,6 +27,7 @@ create table student
 	 name			varchar(20) not null, 
 	 email			varchar(50) not null,
 	 dept_name		varchar(100), 
+	 password		varchar(20) not null,
 	 primary key (student_id),
 	 foreign key (dept_name) references department (dept_name)
 		on delete set null
@@ -115,6 +116,7 @@ create table advise
 	 student_id		varchar(10),
 	 start_date		date not null,
 	 end_date		date,
+	 course_id		varchar(8),
 	 primary key (instructor_id, student_id),
 	 foreign key (instructor_id) references instructor (instructor_id)
 		on delete  cascade,
@@ -181,7 +183,6 @@ create table take
 	);
 
 
-
 insert into account (email, password, type) values ('admin@uml.edu', '123456', 'admin');
 insert into account (email, password, type) values ('dbadams@cs.uml.edu', '123456', 'instructor');
 insert into account (email, password, type) values ('slin@cs.uml.edu', '123456', 'instructor');
@@ -218,3 +219,25 @@ insert into section (course_id, section_id, semester, year) value ('COMP1020', '
 insert into section (course_id, section_id, semester, year) value ('COMP2010', 'Section101', 'Fall', 2023);
 insert into section (course_id, section_id, semester, year) value ('COMP2010', 'Section102', 'Fall', 2023);
 insert into section (course_id, section_id, semester, year) value ('COMP2040', 'Section201', 'Spring', 2024);
+
+insert into student (dept_name, email, name, password, student_id) value ('Miner School of Computer & Information Sciences', 'johnsmith@email.com', 'John Smith', 'password123', 0000000);
+insert into student (dept_name, email, name, password, student_id) value ('Miner School of Computer & Information Sciences', 'samadams@email.com', 'Sam Adams', 'password123', 1111111);
+insert into student (dept_name, email, name, password, student_id) value ('Miner School of Computer & Information Sciences', 'alexanderhamilton@email.com', 'Alexander Hamilton', 'password123', 2222222);
+insert into student (dept_name, email, name, password, student_id) value ('Miner School of Computer & Information Sciences', 'georgewashington@email.com', 'George Washington', 'password123', 3333333);
+insert into student (dept_name, email, name, password, student_id) value ('Miner School of Computer & Information Sciences', 'abelincoln@email.com', 'Abe Lincoln', 'password123', 4444444);
+
+insert into undergraduate (class_standing, student_id, total_credits) value ('Sophomore', 0000000, 6);
+insert into undergraduate (class_standing, student_id, total_credits) value ('Sophomore', 1111111, 6);
+insert into undergraduate (class_standing, student_id) value ('Freshman', 2222222);
+insert into undergraduate (class_standing, student_id) value ('Freshman', 3333333);
+insert into undergraduate (class_standing, student_id) value ('Freshman', 4444444);
+
+insert into advise (instructor_id, student_id, start_date, end_date, course_id) value ('1', 0000000, 09/06/2023, 12/16/2023, 'COMP1010');
+insert into advise (instructor_id, student_id, start_date, end_date, course_id) value ('2', 0000000, 6);
+insert into advise (instructor_id, student_id, start_date, end_date, course_id) value ('3', 0000000, 6);
+insert into advise (instructor_id, student_id, start_date, end_date, course_id) value ('4', 0000000, 6);
+insert into advise (instructor_id, student_id, start_date, end_date, course_id) value ('5', 0000000, 6);
+
+insert into prereq (course_id, prereq_id) value ('COMP1020', 'COMP1010');
+insert into prereq (course_id, prereq_id) value ('COMP2010', 'COMP1020');
+insert into prereq (course_id, prereq_id) value ('COMP2040', 'COMP2010');
