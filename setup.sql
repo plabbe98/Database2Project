@@ -71,7 +71,7 @@ create table classroom
 
 create table time_slot
 	(time_slot_id		varchar(8),
-	 day			varchar(10) not null,
+	 day			varchar(14) not null,
 	 start_time		time not null,
 	 end_time		time not null,
 	 primary key (time_slot_id)
@@ -112,11 +112,11 @@ create table prereq
 	);
 
 create table advise
-	(instructor_id		varchar(8),
+	(instructor_id		varchar(10),
 	 student_id		varchar(10),
 	 start_date		date not null,
 	 end_date		date,
-	 course_id		varchar(8),
+	 course_id		varchar(20),
 	 primary key (instructor_id, student_id),
 	 foreign key (instructor_id) references instructor (instructor_id)
 		on delete  cascade,
@@ -126,8 +126,8 @@ create table advise
 
 create table TA
 	(student_id		varchar(10),
-	 course_id		varchar(8),
-	 section_id		varchar(8), 
+	 course_id		varchar(20),
+	 section_id		varchar(10), 
 	 semester		varchar(6),
 	 year			numeric(4,0),
 	 primary key (student_id, course_id, section_id, semester, year),
@@ -140,8 +140,8 @@ create table TA
 
 create table masterGrader
 	(student_id		varchar(10),
-	 course_id		varchar(8),
-	 section_id		varchar(8), 
+	 course_id		varchar(20),
+	 section_id		varchar(10), 
 	 semester		varchar(6),
 	 year			numeric(4,0),
 	 primary key (student_id, course_id, section_id, semester, year),
@@ -154,8 +154,8 @@ create table masterGrader
 
 create table undergraduateGrader
 	(student_id		varchar(10),
-	 course_id		varchar(8),
-	 section_id		varchar(8), 
+	 course_id		varchar(20),
+	 section_id		varchar(10), 
 	 semester		varchar(6),
 	 year			numeric(4,0),
 	 primary key (student_id, course_id, section_id, semester, year),
@@ -168,8 +168,8 @@ create table undergraduateGrader
 
 create table take
 	(student_id		varchar(10), 
-	 course_id		varchar(8),
-	 section_id		varchar(8), 
+	 course_id		varchar(20),
+	 section_id		varchar(10), 
 	 semester		varchar(6),
 	 year			numeric(4,0),
 	 grade		    	varchar(2)
@@ -181,6 +181,7 @@ create table take
 	 foreign key (student_id) references student (student_id)
 		on delete cascade
 	);
+
 
 
 insert into account (email, password, type) values ('admin@uml.edu', '123456', 'admin');
@@ -195,8 +196,15 @@ insert into course (course_id, course_name, credits) values ('COMP1010', 'Comput
 insert into course (course_id, course_name, credits) values ('COMP1020', 'Computing II', 3);
 insert into course (course_id, course_name, credits) values ('COMP2010', 'Computing III', 3);
 insert into course (course_id, course_name, credits) values ('COMP2040', 'Computing IV', 3);
+insert into course (course_id, course_name, credits) values ('MATH1310', 'Calculus I ', 4);
+insert into course (course_id, course_name, credits) values ('MATH1230', 'Precalculus Mathematics II', 3);
+insert into course (course_id, course_name, credits) values ('MATH1225', 'Precalculus Mathematics I', 3);
 
 insert into department (dept_name, location) value ('Miner School of Computer & Information Sciences', 'Dandeneau Hall, 1 University Avenue, Lowell, MA 01854');
+insert into department (dept_name) value ('Manning School of Business');
+insert into department (dept_name) value ('Miner School of Computer & Information Sciences', 'Dandeneau Hall, 1 University Avenue, Lowell, MA 01854');
+insert into department (dept_name) value ('Miner School of Computer & Information Sciences', 'Dandeneau Hall, 1 University Avenue, Lowell, MA 01854');
+insert into department (dept_name) value ('Miner School of Computer & Information Sciences', 'Dandeneau Hall, 1 University Avenue, Lowell, MA 01854');
 
 insert into instructor (instructor_id, instructor_name, title, dept_name, email) value ('1', 'David Adams', 'Teaching Professor', 'Miner School of Computer & Information Sciences','dbadams@cs.uml.edu');
 insert into instructor (instructor_id, instructor_name, title, dept_name, email) value ('2', 'Sirong Lin', 'Associate Teaching Professor', 'Miner School of Computer & Information Sciences','slin@cs.uml.edu');
@@ -210,21 +218,37 @@ insert into time_slot (time_slot_id, day, start_time, end_time) value ('TS3', 'M
 insert into time_slot (time_slot_id, day, start_time, end_time) value ('TS4', 'TuTh', '11:00:00', '12:15:00');
 insert into time_slot (time_slot_id, day, start_time, end_time) value ('TS5', 'TuTh', '12:30:00', '13:45:00');
 
-insert into section (course_id, section_id, semester, year) value ('COMP1010', 'Section101', 'Fall', 2023);
-insert into section (course_id, section_id, semester, year) value ('COMP1010', 'Section102', 'Fall', 2023);
-insert into section (course_id, section_id, semester, year) value ('COMP1010', 'Section103', 'Fall', 2023);
-insert into section (course_id, section_id, semester, year) value ('COMP1010', 'Section104', 'Fall', 2023);
-insert into section (course_id, section_id, semester, year) value ('COMP1020', 'Section101', 'Spring', 2024);
-insert into section (course_id, section_id, semester, year) value ('COMP1020', 'Section102', 'Spring', 2024);
-insert into section (course_id, section_id, semester, year) value ('COMP2010', 'Section101', 'Fall', 2023);
-insert into section (course_id, section_id, semester, year) value ('COMP2010', 'Section102', 'Fall', 2023);
-insert into section (course_id, section_id, semester, year) value ('COMP2040', 'Section201', 'Spring', 2024);
+insert into section (course_id, section_id, semester, year, instructor_id) value ('COMP1010', 'Section101', 'Fall', 2023, '1');
+insert into section (course_id, section_id, semester, year, instructor_id) value ('COMP1010', 'Section102', 'Fall', 2023, '2');
+insert into section (course_id, section_id, semester, year, instructor_id) value ('COMP1010', 'Section103', 'Fall', 2023, '3');
+insert into section (course_id, section_id, semester, year, instructor_id) value ('COMP2010', 'Section104', 'Fall', 2023, '4');
+insert into section (course_id, section_id, semester, year, instructor_id) value ('COMP1020', 'Section101', 'Spring', 2024, '5');
 
 insert into student (dept_name, email, name, password, student_id) value ('Miner School of Computer & Information Sciences', 'johnsmith@email.com', 'John Smith', 'password123', 0000000);
 insert into student (dept_name, email, name, password, student_id) value ('Miner School of Computer & Information Sciences', 'samadams@email.com', 'Sam Adams', 'password123', 1111111);
 insert into student (dept_name, email, name, password, student_id) value ('Miner School of Computer & Information Sciences', 'alexanderhamilton@email.com', 'Alexander Hamilton', 'password123', 2222222);
 insert into student (dept_name, email, name, password, student_id) value ('Miner School of Computer & Information Sciences', 'georgewashington@email.com', 'George Washington', 'password123', 3333333);
 insert into student (dept_name, email, name, password, student_id) value ('Miner School of Computer & Information Sciences', 'abelincoln@email.com', 'Abe Lincoln', 'password123', 4444444);
+insert into student (dept_name, email, name, password, student_id) value ('Miner School of Computer & Information Sciences', 'lawtondav@email.com', 'Lawton Devin', 'password123', 5555555);
+insert into student (dept_name, email, name, password, student_id) value ('Miner School of Computer & Information Sciences', 'johnsmith@email.com', 'John Smith', 'password123', 6666666);
+insert into student (dept_name, email, name, password, student_id) value ('Miner School of Computer & Information Sciences', 'davidsmith@email.com', 'David Smith', 'password123', 7777777);
+insert into student (dept_name, email, name, password, student_id) value ('Miner School of Computer & Information Sciences', 'bobriely@email.com', 'Bob Riely', 'password123', 8888888);
+insert into student (dept_name, email, name, password, student_id) value ('Miner School of Computer & Information Sciences', 'kimdep@email.com', 'Kim Dep', 'password123', 9999999);
+
+
+insert into take (student_id, course_id, section_id, semester) value (0000000, 'COMP2010', 'Section104', 'Fall');
+insert into take (student_id, course_id, section_id, semester) value (1111111, 'COMP2010', 'Section104', 'Fall');
+insert into take (student_id, course_id, section_id, semester) value (2222222, 'COMP1010', 'Section101', 'Fall');
+insert into take (student_id, course_id, section_id, semester) value (3333333, 'COMP1010', 'Section101', 'Fall');
+insert into take (student_id, course_id, section_id, semester) value (4444444, 'COMP1010', 'Section101', 'Fall');
+
+
+insert into PhD (student_id) value (5555555);
+insert into PhD (student_id) value (6666666);
+insert into PhD (student_id) value (7777777);
+insert into PhD (student_id) value (8888888);
+insert into PhD (student_id) value (9999999);
+
 
 insert into undergraduate (class_standing, student_id, total_credits) value ('Sophomore', 0000000, 6);
 insert into undergraduate (class_standing, student_id, total_credits) value ('Sophomore', 1111111, 6);
@@ -232,12 +256,16 @@ insert into undergraduate (class_standing, student_id) value ('Freshman', 222222
 insert into undergraduate (class_standing, student_id) value ('Freshman', 3333333);
 insert into undergraduate (class_standing, student_id) value ('Freshman', 4444444);
 
-insert into advise (instructor_id, student_id, start_date, end_date, course_id) value ('1', 0000000, 09/06/2023, 12/16/2023, 'COMP1010');
-insert into advise (instructor_id, student_id, start_date, end_date, course_id) value ('2', 0000000, 6);
-insert into advise (instructor_id, student_id, start_date, end_date, course_id) value ('3', 0000000, 6);
-insert into advise (instructor_id, student_id, start_date, end_date, course_id) value ('4', 0000000, 6);
-insert into advise (instructor_id, student_id, start_date, end_date, course_id) value ('5', 0000000, 6);
+insert into advise (instructor_id, student_id, start_date, end_date) value ('1', 5555555, '2023-5-2', '2023-9-9');
+insert into advise (instructor_id, student_id, start_date, end_date) value ('2', 6666666, '2023-5-2', '2023-9-9');
+insert into advise (instructor_id, student_id, start_date, end_date) value ('3', 7777777, '2023-5-2', '2023-9-9');
+insert into advise (instructor_id, student_id, start_date, end_date) value ('4', 8888888, '2023-5-2', '2023-9-9');
+insert into advise (instructor_id, student_id, start_date, end_date) value ('5', 9999999, '2023-5-2', '2023-9-9');
 
 insert into prereq (course_id, prereq_id) value ('COMP1020', 'COMP1010');
 insert into prereq (course_id, prereq_id) value ('COMP2010', 'COMP1020');
 insert into prereq (course_id, prereq_id) value ('COMP2040', 'COMP2010');
+insert into prereq (course_id, prereq_id) value ('MATH1310', 'MATH1230');
+insert into prereq (course_id, prereq_id) value ('MATH1230', 'MATH1225');
+
+
