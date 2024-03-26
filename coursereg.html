@@ -1,0 +1,70 @@
+<?php
+  $DOCUMENT_ROOT = $_SERVER['DOCUMENT_ROOT'];
+?>
+
+<head>
+  <title>UMass Lowell - Student Registration</title>
+</head>
+<body>
+<h1>UMass Lowell</h1>
+<h2>Course Registration</h2>
+
+</body>
+</html>
+
+<?php
+  $myconnection = mysqli_connect('localhost', 'root', '') or die ('Could not connect: ' . mysql_error());
+  $mydb = mysqli_select_db ($myconnection, 'db2') or die ('Could not select database');
+
+
+ $query = 'SELECT semester, year, course_id, section_id FROM section';
+ $stmt = $myconnection->prepare($query);
+ $stmt->execute();
+ $stmt->bind_result($semester, $year, $course_id, $section_id); // Bind result variables
+ $stmt->fetch(); // Fetch the result
+ $stmt->close();
+ mysqli_close($myconnection);
+?>
+
+<form action="checkPreReq.php" method="post">
+<table border="0">
+<tr>
+  <td>Course ID</td>
+  <td><select name="course_id">
+    <option value="course_id"><Course ID></option>
+    <option value="?php echo $course_id; ?">?php echo $course_id;?</option>
+  </select>
+  <inputtype="submit" value="Submit"></td>
+</tr>
+<tr>
+  <td>Section ID</td>
+  <td><select name="section_id">
+    <option value="section_id"><Section ID></option>
+    <option value="?php echo $section_id; ?">?php echo $section_id;?</option>
+  </select>
+  <inputtype="submit" value="Submit"></td>
+</tr>
+<tr>
+  <td>Semester</td>
+  <td><select name="session">
+    <option value="semester"><Semester></option>
+    <option value="?php echo $semester; ?">?php echo $semester;?</option>
+  </select>
+  <inputtype="submit" value="Submit"></td>
+</tr>
+<tr>
+  <td>Year</td>
+  <td><select name="year">
+    <option value="year"><Year></option>
+    <option value="?php echo $year; ?">?php echo $year;?</option>
+  </select>
+  <inputtype="submit" value="Submit"></td>
+</tr>
+<tr>
+  <td colspan="2" align="center"><input type="submit" value="Go"/></td>
+</tr>
+</table>
+</form>
+
+</body>
+</html>

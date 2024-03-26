@@ -5,7 +5,7 @@
 <h1>UMass Lowell</h1>
 <h2>Student Registration</h2>
 
-<form action="studentReg.php" method="post">
+<form action="register.php" method="post">
 <table border="0">
 <tr>
   <td>Student ID</td>
@@ -20,8 +20,16 @@
   <td align="left"><input type="text" name="email" size="20" maxlength="20"/></td>
 </tr>
 <tr>
+  <td>Password</td>
+  <td align="left"><input type="text" name="password" size="20" maxlength="20"/></td>
+</tr>
+<tr>
   <td>Department Name</td>
-  <td align="left"><input type="text" name="dept_name" size="50" maxlength="50"/></td>
+  <td><select name="dept_name">
+    <option value="">Select a department</option>
+    <option value="Miner School of Computer & Information Sciences">Miner School of Computer & Information Sciences</option>
+  </select>
+  <inputtype="submit" value="Submit"></td>
 </tr>
 <tr>
   <td colspan="2" align="center"><input type="submit" value="Register!"/></td>
