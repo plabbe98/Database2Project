@@ -182,6 +182,12 @@ create table take
 		on delete cascade
 	);
 
+insert into classroom (classroom_id, capacity, room_number) value (00000000, 25, 101);
+insert into classroom (classroom_id, capacity, room_number) value (11111111, 25, 102);
+insert into classroom (classroom_id, capacity, room_number) value (22222222, 25, 103);
+insert into classroom (classroom_id, capacity, room_number) value (33333333, 25, 104);
+insert into classroom (classroom_id, capacity, room_number) value (44444444, 25, 105);
+
 
 
 insert into account (email, password, type) values ('admin@uml.edu', '123456', 'admin');
@@ -201,10 +207,10 @@ insert into course (course_id, course_name, credits) values ('MATH1230', 'Precal
 insert into course (course_id, course_name, credits) values ('MATH1225', 'Precalculus Mathematics I', 3);
 
 insert into department (dept_name, location) value ('Miner School of Computer & Information Sciences', 'Dandeneau Hall, 1 University Avenue, Lowell, MA 01854');
-insert into department (dept_name) value ('Manning School of Business');
-insert into department (dept_name) value ('Miner School of Computer & Information Sciences', 'Dandeneau Hall, 1 University Avenue, Lowell, MA 01854');
-insert into department (dept_name) value ('Miner School of Computer & Information Sciences', 'Dandeneau Hall, 1 University Avenue, Lowell, MA 01854');
-insert into department (dept_name) value ('Miner School of Computer & Information Sciences', 'Dandeneau Hall, 1 University Avenue, Lowell, MA 01854');
+insert into department (dept_name) value ('Chemistry');
+insert into department (dept_name) value ('Biological Sciences');
+insert into department (dept_name) value ('Mathematics & Statistcs');
+insert into department (dept_name) value ('Physics & Applied Physics');
 
 insert into instructor (instructor_id, instructor_name, title, dept_name, email) value ('1', 'David Adams', 'Teaching Professor', 'Miner School of Computer & Information Sciences','dbadams@cs.uml.edu');
 insert into instructor (instructor_id, instructor_name, title, dept_name, email) value ('2', 'Sirong Lin', 'Associate Teaching Professor', 'Miner School of Computer & Information Sciences','slin@cs.uml.edu');
@@ -222,6 +228,11 @@ insert into section (course_id, section_id, semester, year, instructor_id) value
 insert into section (course_id, section_id, semester, year, instructor_id) value ('COMP1010', 'Section102', 'Fall', 2023, '2');
 insert into section (course_id, section_id, semester, year, instructor_id) value ('COMP1010', 'Section103', 'Fall', 2023, '3');
 insert into section (course_id, section_id, semester, year, instructor_id) value ('COMP2010', 'Section104', 'Fall', 2023, '4');
+insert into section (course_id, section_id, semester, year, instructor_id) value ('COMP1010', 'Section101', 'Spring', 2023, '1');
+insert into section (course_id, section_id, semester, year, instructor_id) value ('COMP1010', 'Section102', 'Spring', 2023, '2');
+insert into section (course_id, section_id, semester, year, instructor_id) value ('COMP1010', 'Section103', 'Spring', 2023, '3');
+insert into section (course_id, section_id, semester, year, instructor_id) value ('COMP2010', 'Section104', 'Spring', 2023, '4');
+insert into section (course_id, section_id, semester, year, instructor_id) value ('COMP2010', 'Section105', 'Spring', 2023, '1');
 insert into section (course_id, section_id, semester, year, instructor_id) value ('COMP1020', 'Section101', 'Spring', 2024, '5');
 
 insert into student (dept_name, email, name, password, student_id) value ('Miner School of Computer & Information Sciences', 'johnsmith@email.com', 'John Smith', 'password123', 0000000);
@@ -233,14 +244,25 @@ insert into student (dept_name, email, name, password, student_id) value ('Miner
 insert into student (dept_name, email, name, password, student_id) value ('Miner School of Computer & Information Sciences', 'johnsmith@email.com', 'John Smith', 'password123', 6666666);
 insert into student (dept_name, email, name, password, student_id) value ('Miner School of Computer & Information Sciences', 'davidsmith@email.com', 'David Smith', 'password123', 7777777);
 insert into student (dept_name, email, name, password, student_id) value ('Miner School of Computer & Information Sciences', 'bobriely@email.com', 'Bob Riely', 'password123', 8888888);
-insert into student (dept_name, email, name, password, student_id) value ('Miner School of Computer & Information Sciences', 'kimdep@email.com', 'Kim Dep', 'password123', 9999999);
+insert into student (dept_name, email, name, password, student_id) value ('Chemistry', 'emilsinclair@email.com', 'Emil Sinclair', 'password123', 9999999);
+insert into student (dept_name, email, name, password, student_id) value ('Chemistry', 'orlandofurioso@email.com', 'Orlando Furioso', 'password123', 0111111);
+insert into student (dept_name, email, name, password, student_id) value ('Chemistry', 'kimdep@email.com', 'Kim Dep', 'password123', 0222222);
+insert into student (dept_name, email, name, password, student_id) value ('Chemistry', 'wallgreen@email.com', 'Wall Green', 'password123', 0333333);
+insert into student (dept_name, email, name, password, student_id) value ('Chemistry', 'davidgilbert@email.com', 'David Gilbert', 'password123', 0444444);
+insert into student (dept_name, email, name, password, student_id) value ('Chemistry', 'guyjohn@email.com', 'Guy Jhon', 'password123', 0555555);
 
 
-insert into take (student_id, course_id, section_id, semester) value (0000000, 'COMP2010', 'Section104', 'Fall');
-insert into take (student_id, course_id, section_id, semester) value (1111111, 'COMP2010', 'Section104', 'Fall');
-insert into take (student_id, course_id, section_id, semester) value (2222222, 'COMP1010', 'Section101', 'Fall');
-insert into take (student_id, course_id, section_id, semester) value (3333333, 'COMP1010', 'Section101', 'Fall');
-insert into take (student_id, course_id, section_id, semester) value (4444444, 'COMP1010', 'Section101', 'Fall');
+insert into take (student_id, course_id, section_id, semester, grade) value (0000000, 'COMP2010', 'Section104', 'Fall', 'A');
+insert into take (student_id, course_id, section_id, semester, grade) value (1111111, 'COMP2010', 'Section104', 'Fall', 'A');
+insert into take (student_id, course_id, section_id, semester, grade) value (2222222, 'COMP1010', 'Section101', 'Fall', 'A');
+insert into take (student_id, course_id, section_id, semester, grade) value (3333333, 'COMP1010', 'Section101', 'Fall', 'A');
+insert into take (student_id, course_id, section_id, semester, grade) value (4444444, 'COMP1010', 'Section101', 'Fall', 'A');
+
+insert into master(student_id) value (0111111);
+insert into master(student_id) value (0222222);
+insert into master(student_id) value (0333333);
+insert into master(student_id) value (0444444);
+insert into master(student_id) value (0555555);
 
 
 insert into PhD (student_id) value (5555555);
