@@ -228,11 +228,11 @@ insert into section (course_id, section_id, semester, year, instructor_id) value
 insert into section (course_id, section_id, semester, year, instructor_id) value ('COMP1010', 'Section102', 'Fall', 2023, '2');
 insert into section (course_id, section_id, semester, year, instructor_id) value ('COMP1010', 'Section103', 'Fall', 2023, '3');
 insert into section (course_id, section_id, semester, year, instructor_id) value ('COMP2010', 'Section104', 'Fall', 2023, '4');
-insert into section (course_id, section_id, semester, year, instructor_id) value ('COMP1010', 'Section101', 'Spring', 2023, '1');
-insert into section (course_id, section_id, semester, year, instructor_id) value ('COMP1010', 'Section102', 'Spring', 2023, '2');
-insert into section (course_id, section_id, semester, year, instructor_id) value ('COMP1010', 'Section103', 'Spring', 2023, '3');
-insert into section (course_id, section_id, semester, year, instructor_id) value ('COMP2010', 'Section104', 'Spring', 2023, '4');
-insert into section (course_id, section_id, semester, year, instructor_id) value ('COMP2010', 'Section105', 'Spring', 2023, '1');
+insert into section (course_id, section_id, semester, year, instructor_id) value ('COMP1010', 'Section101', 'Spring', 2024, '1');
+insert into section (course_id, section_id, semester, year, instructor_id) value ('COMP1010', 'Section102', 'Spring', 2024, '2');
+insert into section (course_id, section_id, semester, year, instructor_id) value ('COMP1010', 'Section103', 'Spring', 2024, '3');
+insert into section (course_id, section_id, semester, year, instructor_id) value ('COMP2010', 'Section104', 'Spring', 2024, '4');
+insert into section (course_id, section_id, semester, year, instructor_id) value ('COMP2010', 'Section105', 'Spring', 2024, '1');
 insert into section (course_id, section_id, semester, year, instructor_id) value ('COMP1020', 'Section101', 'Spring', 2024, '5');
 
 insert into student (dept_name, email, name, password, student_id) value ('Miner School of Computer & Information Sciences', 'johnsmith@email.com', 'John Smith', 'password123', 0000000);
@@ -251,12 +251,23 @@ insert into student (dept_name, email, name, password, student_id) value ('Chemi
 insert into student (dept_name, email, name, password, student_id) value ('Chemistry', 'davidgilbert@email.com', 'David Gilbert', 'password123', 0444444);
 insert into student (dept_name, email, name, password, student_id) value ('Chemistry', 'guyjohn@email.com', 'Guy Jhon', 'password123', 0555555);
 
+insert into student (student_id) value (0666666);
+insert into student (student_id) value (0777777);
+insert into student (student_id) value (0888888);
+insert into student (student_id) value (0999999);
+insert into student (student_id) value (1000000);
 
-insert into take (student_id, course_id, section_id, semester, grade) value (0000000, 'COMP2010', 'Section104', 'Fall', 'A');
-insert into take (student_id, course_id, section_id, semester, grade) value (1111111, 'COMP2010', 'Section104', 'Fall', 'A');
-insert into take (student_id, course_id, section_id, semester, grade) value (2222222, 'COMP1010', 'Section101', 'Fall', 'A');
-insert into take (student_id, course_id, section_id, semester, grade) value (3333333, 'COMP1010', 'Section101', 'Fall', 'A');
-insert into take (student_id, course_id, section_id, semester, grade) value (4444444, 'COMP1010', 'Section101', 'Fall', 'A');
+
+
+
+insert into take (student_id, course_id, section_id, semester) value ()
+
+
+insert into take (student_id, course_id, section_id, semester, year, grade) value (0000000, 'COMP2010', 'Section104', 'Fall', 2023, 'A');
+insert into take (student_id, course_id, section_id, semester, year, grade) value (1111111, 'COMP2010', 'Section104', 'Fall', 2023,'A');
+insert into take (student_id, course_id, section_id, semester, year, grade) value (2222222, 'COMP1010', 'Section101', 'Fall', 2023,'A');
+insert into take (student_id, course_id, section_id, semester, year, grade) value (3333333, 'COMP1010', 'Section101', 'Fall', 2023,'A');
+insert into take (student_id, course_id, section_id, semester, year, grade) value (4444444, 'COMP1010', 'Section101', 'Fall', 2023,'A');
 
 insert into master(student_id) value (0111111);
 insert into master(student_id) value (0222222);
